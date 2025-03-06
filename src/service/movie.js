@@ -14,7 +14,20 @@ async function getAllMovies() {
     });
 }
 
+async function getMovieById(id) {
+    return new Promise((resolve, reject) => {
+        connection.query('SELECT * FROM webcinema.tb_pelicula WHERE id = ?',id ,(err, rows) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(rows);
+            }
+        });
+    });
+    
+}
 
 module.exports = {
-    getAllMovies
+    getAllMovies,
+    getMovieById
 }

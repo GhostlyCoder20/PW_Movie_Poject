@@ -8,7 +8,23 @@ async function getAllMovies() {
     try {
         await service.getAllMovies().then(res => {
             result = res;
-            console.log(result);
+            // console.log(result);
+        });
+    } catch (error) {
+        console.log('Error: ', error.message);
+        result = error;
+    }
+
+    return result;
+}
+
+async function getMovieById(id) {
+    let result;
+
+    try {
+        await service.getMovieById(id).then(res => {
+            result = res;
+            // console.log(result);
         });
     } catch (error) {
         console.log('Error: ', error.message);
@@ -19,8 +35,7 @@ async function getAllMovies() {
 }
 
 
-
-
 module.exports = {
-    getAllMovies
+    getAllMovies,
+    getMovieById
 }

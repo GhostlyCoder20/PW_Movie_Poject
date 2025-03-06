@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const  controller  = require('../controllers/movie');
-const { connection } = require('../database/connection');
+const  response = require('../helpers/responses');
 
 
 router.get('/', async (req, res) => {
-   const movies = await controller.getAllMovies();
-   res.send({movies})
+   const data = await controller.getAllMovies();
+   response.success(req, res, data);
+});
+
+router.get('/:id', async (req, res) => {
+   var id = req.params.id;
+   const data = await controller.getMovieById(id)
+   response.success(req, res, data);
+
 });
 
 module.exports = router;
