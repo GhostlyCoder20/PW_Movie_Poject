@@ -4,6 +4,7 @@ const movieRoutes = require('./routes/movie')
 const userRoutes = require('./routes/user');
 const testRoutes = require('./routes/test');
 const hallRoutes = require('./routes/hall')
+const rolRoutes = require('./routes/rol');
 const auth = require('./middleware/token')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -15,6 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+app.use('/rol', rolRoutes);
 app.use('/hall', hallRoutes);
 app.use('/user', userRoutes);
 app.use('/movie', movieRoutes);
