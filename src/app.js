@@ -3,7 +3,8 @@ const config = require('./config/config')
 const movieRoutes = require('./routes/movie')
 const userRoutes = require('./routes/user');
 const testRoutes = require('./routes/test');
-const hallRoutes = require('./routes/hall')
+const hallRoutes = require('./routes/hall');
+const seatRoutes = require('./routes/seat');
 const rolRoutes = require('./routes/rol');
 const auth = require('./middleware/token')
 const bodyParser = require('body-parser');
@@ -16,6 +17,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+app.use('/seat', seatRoutes);
 app.use('/rol', rolRoutes);
 app.use('/hall', hallRoutes);
 app.use('/user', userRoutes);
