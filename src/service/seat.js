@@ -31,7 +31,7 @@ async function updateSeat(id, data) {
 async function updateSeatByReservation(id, data) {
     return new Promise((resolve, reject) => {
         connection.query('UPDATE cineweb.tbl_asiento SET  id_usuario = ?, estado = ? WHERE id = ?;'
-            , [ddata.id_usuario, data.estado, id], (error, rows) => {
+            , [data.user_id, 2, id], (error, rows) => {
                 if (error) {
                     reject(error);
                 } else {

@@ -82,10 +82,11 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.put('byreservation/:id', async (req, res) => {
+router.put('/byreservation/:id', async (req, res) => {
     let id = req.params.id;
     let data = req.body;
     let result;
+    console.log(data.user_id);
     try {
         result = await controller.updateSeatByReservation(id, data);
         if (result) response.success(req, res, "reservacion hecha");

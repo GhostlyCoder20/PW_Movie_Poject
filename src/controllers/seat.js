@@ -57,6 +57,7 @@ async function updateSeatByReservation(id, data) {
         try {
             await service.updateSeatByReservation(id, data).then(res => result = res);
         } catch (error) {
+            console.log(error);
             throw error.message
         }
         
