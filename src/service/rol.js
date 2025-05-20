@@ -3,7 +3,7 @@ const { connection } = require('../database/connection');
 
 async function addRol(data) {
     return new Promise((resolve, reject) => {
-        connection.query('INSERT INTO webcinema.tb_rol (nombre) VALUES (?);'
+        connection.query('INSERT INTO cineweb.tbl_rol (nombre) VALUES (?);'
             , [data.nombre], (error, rows) => {
                 if (error) {
                     reject(error);
@@ -16,7 +16,7 @@ async function addRol(data) {
 
 async function updateRol(id, data) {
     return new Promise((resolve, reject) => {
-        connection.query('UPDATE webcinema.tb_rol SET nombre= ? WHERE id = ?;'
+        connection.query('UPDATE cineweb.tbl_rol SET nombre= ? WHERE id = ?;'
             , [data.nombre, id], (error, rows) => {
                 if (error) {
                     reject(error);
@@ -29,7 +29,7 @@ async function updateRol(id, data) {
 
 async function getAllRol() {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM webcinema.tb_rol;', (error, rows) => {
+        connection.query('SELECT * FROM cineweb.tbl_rol;', (error, rows) => {
             if (error) {
                 reject(error);
             } else {
@@ -41,7 +41,7 @@ async function getAllRol() {
 
 async function getRolById(id) {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM webcinema.tb_rol WHERE id = ?;', [id] ,(error, rows) => {
+        connection.query('SELECT * FROM cineweb.tbl_rol WHERE id = ?;', [id] ,(error, rows) => {
             if (error) {
                 reject(error);
             } else {
@@ -53,7 +53,7 @@ async function getRolById(id) {
 
 async function deleteRol(id) {
     return new Promise((resolve, reject) => {
-        connection.query('DELETE FROM webcinema.tb_rol WHERE id = ?;', [id], (error, rows) => {
+        connection.query('DELETE FROM cineweb.tbl_rol WHERE id = ?;', [id], (error, rows) => {
             if (error) {
                 reject(error);
             } else {

@@ -3,9 +3,9 @@ const config = require('../config/config');
 
 
 exports.createToken = function (data) {
+    console.log(data);
    return jwt.sign({
-        name: data.nombre,
-        username: data.nombre_usuario
+       data
     }, config.app.jwt_secret) ;
 
 }

@@ -26,6 +26,18 @@ async function verifyEmailUser(email) {
     return result;
 }
 
+async function getUserDataByEmail(email) {
+    let result;
+
+    try {
+        await service.getUserDataByEmail(email).then(res => result = res);
+    } catch (error) {
+        throw error.message;
+    }
+
+    return result;
+}
+
 async function verifyEmailPassword(email) {
     let result;
     
@@ -42,5 +54,6 @@ async function verifyEmailPassword(email) {
 module.exports = {
     registerUser, 
     verifyEmailUser,
-    verifyEmailPassword
+    verifyEmailPassword,
+    getUserDataByEmail
 }

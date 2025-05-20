@@ -25,11 +25,11 @@ async function getAllSeat() {
 
 }
 
-async function getSeatById(id) {
+async function getSeatByHallId(idHall) {
     let result;
         
         try {
-            await service.getSeatById(id).then(res => result = res);
+            await service.getSeatByHallId(idHall).then(res => result = res);
         } catch (error) {
             throw error.message
         }
@@ -51,6 +51,19 @@ async function updateSeat(id, data) {
 
 }
 
+async function updateSeatByReservation(id, data) {
+     let result;
+    
+        try {
+            await service.updateSeatByReservation(id, data).then(res => result = res);
+        } catch (error) {
+            throw error.message
+        }
+        
+        return result;
+
+}
+
 
 async function deleteSeat(id) {
      let result;
@@ -64,10 +77,51 @@ async function deleteSeat(id) {
         return result;
 }
 
+async function deleteSeatByHallId(hallId) {
+     let result;
+        
+        try {
+            await service.deleteSeatByHallId(hallId).then(res => result = res);
+        } catch (error) {
+            throw error.message
+        }
+        
+        return result;
+}
+
+async function getMaxRowAndColumnByHall(hall) {
+    let result;
+
+    try {
+        await service.getMaxRowAndColumnByHall(hall).then(res => result = res);
+    } catch (error) {
+        throw error.message;
+    }
+
+    return result;
+}
+
+/* Views */
+async function getAllHallWithSeats() {
+    let result;
+
+    try {
+        await service.getAllHallWithSeats().then(res => { result = res; });
+    } catch (error) {
+        throw error.message;
+    }
+
+    return result;
+}
+
 module.exports = {
     addSeat,
     deleteSeat,
     updateSeat,
     getAllSeat,
-    getSeatById
+    getSeatByHallId,
+    getAllHallWithSeats,
+    deleteSeatByHallId,
+    getMaxRowAndColumnByHall,
+    updateSeatByReservation
 }

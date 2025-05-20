@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         response.success(req, res, result);
         
     } catch (error) {
+        console.log(error.message)
         response.error(req, res, 'Error: ' + error.message);
     }
 })
@@ -24,6 +25,7 @@ router.get('/:id', async (req, res) => {
         
         
     } catch (error) {
+        console.log(error.message);
         response.error(req, res, 'Error: ' + error.message);
     }
 })
